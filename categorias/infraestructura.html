@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+<!-- ===================================================================================================
+
+        Instituto Municipal de Planeación y Competitividad de Torreón.
+
+        3er. generación de la Plataforma del Conocimiento
+        Desarrollado por Ing. Guillermo Valdés Lozano <guivaloz en movimientolibre.com>
+
+        El software que lo construye está bajo la licencia GPL versión 3. © 2014, 2015, 2016.
+        Una copia está contenida en el archivo LICENCE al bajar desde GitHub.
+
+        Al usar, estudiar y copiar está aceptando los términos de uso de la información y del sitio web:
+          http://www.trcimplan.gob.mx/terminos/terminos-informacion.html
+          http://www.trcimplan.gob.mx/terminos/terminos-sitio.html
+
+        Agradecemos y compartimos las tecnologías abiertas y gratuitas sobre las que se basa:
+          PHP                    http://php.net
+          Twitter Bootstrap      http://getbootstrap.com
+          StartBootStrap         http://startbootstrap.com
+          Morris.js              https://morrisjs.github.io/morris.js/
+
+        El hospedaje es cortesía de GitHub. Descargue, estudie y colabore bajando todo este sitio web:
+          IMPLAN Torreón         https://github.com/TRCIMPLAN
+
+     =================================================================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="TrcIMPLAN Staff">
+  <meta name="keywords" content="Categoria, Infraestructura">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Infraestructura - CMIC Laguna / IMPLAN Torreón">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://www.trcimplan.gob.mx/cmiclaguna/categorias/infraestructura.html">
+  <meta name="og:title" content="Infraestructura - CMIC Laguna / IMPLAN Torreón">
+  <meta name="og:description" content="">
+  <meta name="og:url" content="http://www.trcimplan.gob.mx/cmiclaguna/categorias/infraestructura.html">
+  <title>Infraestructura - CMIC Laguna / IMPLAN Torreón</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/x-icon" href="../imagenes/favicon.png">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon-76x76.png" sizes="76x76">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon-120x120.png" sizes="120x120">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon-152x152.png" sizes="152x152">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon-180x180.png" sizes="180x180">
+  <link rel="icon" href="../imagenes/icon-hires.png" sizes="192x192">
+  <link rel="icon" href="../imagenes/icon-normal.png" sizes="128x128">
+  <link rel="alternate" type="application/rss+xml" href="../rss.xml" title="CMIC Laguna / IMPLAN Torreón">
+  <link rel="stylesheet" type="text/css" href="../css/morris.css">
+  <link rel="stylesheet" type="text/css" href="../css/plugins/metisMenu/metisMenu.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/sb-admin-2.css">
+  <link rel="stylesheet" type="text/css" href="../css/plataforma-de-conocimiento.css">
+  <link rel="stylesheet" type="text/css" href="../css/trcimplan.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Sans|Roboto+Condensed:400,700">
+  <link rel="stylesheet" type="text/css" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
+  <!-- SOPORTE PARA IE -->
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="wrapper">
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html"><img class="navbar-brand-img" src="../imagenes/cmic-trcimplan-barra.png" alt="CMIC Laguna / IMPLAN Torreón"></a>
+    </div>
+  <div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+      <ul class="nav" id="side-menu">
+        <li class="sidebar-search">
+          <form method="get" id="searchbox_015475140351266618625:04hulmghdys" action="http://www.trcimplan.gob.mx/buscador-resultados.html">
+            <input type="hidden" value="015475140351266618625:04hulmghdys" name="cx">
+            <input type="hidden" value="FORID:11" name="cof">
+            <div class="input-group custom-search-form">
+              <input type="text" class="form-control" placeholder="Buscar..." value="" name="s" id="s">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li><a href="../blog/index.html"><span class="navegacion-icono"><i class="fa fa-lightbulb-o"></i></span> Análisis Publicados</a></li>
+        <li>
+          <a href="#"><span class="navegacion-icono"><i class="fa fa-area-chart"></i></span> Indicadores<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li><a href="../smi/introduccion.html"><span class="navegacion-icono"><i class="fa fa-file-text-o"></i></span> Introducción al SMI</a></li>
+            <li><a href="../indicadores-categorias/index.html"><span class="navegacion-icono"><i class="fa fa-th-list"></i></span> Indicadores por Categoría</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="navegacion-icono"><i class="fa fa-map-marker"></i></span> Información Geográfica<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li><a href="../sig/introduccion.html"><span class="navegacion-icono"><i class="fa fa-file-text-o"></i></span> Introducción al SIG</a></li>
+            <li><a href="../sig-planes/index.html"><span class="navegacion-icono"><i class="fa fa-file-pdf-o"></i></span> Planes</a></li>
+            <li><a href="../sig-mapas-torreon/index.html"><span class="navegacion-icono"><i class="fa fa-map-marker"></i></span> Mapas de Torreón</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="navegacion-icono"><i class="fa fa-share-alt"></i></span> Términos de Uso<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li><a href="../terminos/terminos-informacion.html"><span class="navegacion-icono"><i class="fa fa-cubes"></i></span> De la información</a></li>
+            <li><a href="../terminos/terminos-sitio.html"><span class="navegacion-icono"><i class="fa fa-globe"></i></span> Del sitio web</a></li>
+            <li><a href="../terminos/privacidad.html"><span class="navegacion-icono"><i class="fa fa-lock"></i></span> Aviso de Privacidad</a></li>
+          </ul>
+        </li>
+        <li><a href="../contacto/contacto.html"><span class="navegacion-icono"><i class="fa fa-phone"></i></span> Contacto</a></li>
+        <li><a href="http://www.trcimplan.gob.mx/" target="_blank"><span class="navegacion-icono"><i class="fa fa-external-link"></i></span> IMPLAN Torreón</a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  <div id="page-wrapper">
+    <div class="cuerpo">
+      <div class="encabezado">
+        <span><h1>Infraestructura</h1></span>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/beneficios-de-la-peatonalizacion-en-el-centro-de-torreon.html"><img class="media-object" src="../blog/beneficios-de-la-peatonalizacion-en-el-centro-de-torreon/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/beneficios-de-la-peatonalizacion-en-el-centro-de-torreon.html">Beneficios de la peatonalización en el Centro de Torreón</a></h3>
+          <p class="detallados-descripcion">De acuerdo con INEGI 12.6% de la población de 12 a 65 años realiza traslados a pie por estudio o trabajo. En el centro se ha lanzado el primer proyecto peatonal de la ciudad: El Paseo Morelos con estrategias como la pacificación del tránsito, señalización y cruces seguros.</p>
+          <p class="detallados-autor-fecha">Por Arq. Daniela Patricia Corral Hernández, 23/09/2016 13:35</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/estructura-y-traza-urbana-de-torreon.html"><img class="media-object" src="../blog/estructura-y-traza-urbana-de-torreon/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/estructura-y-traza-urbana-de-torreon.html">Estructura y Traza Urbana de Torreón</a></h3>
+          <p class="detallados-descripcion">La pérdida de orden en la morfología de Torreón, consecuencia de una falta de planeación urbana, trajo problemas como desconexión vial, cruceros conflictivos, alta necesidad de movilidad motorizada y condiciones viales propicias para la privatización y clausura de los fraccionamientos.</p>
+          <p class="detallados-autor-fecha">Por Arq. Cecilio Pedro Secunza Schott, 26/01/2016 12:50</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/la-ciudad-compacta-vive-mejor.html"><img class="media-object" src="../blog/la-ciudad-compacta-vive-mejor/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/la-ciudad-compacta-vive-mejor.html">La Ciudad Compacta (como la familia pequeña) Vive Mejor</a></h3>
+          <p class="detallados-descripcion">La política pública a adoptar como estrategia debe ser la de crecimiento interno: densificar la ciudad implotando su crecimiento hacia adentro y hacia arriba.</p>
+          <p class="detallados-autor-fecha">Por Arq. Cecilio Pedro Secunza Schott, 01/07/2015 15:16</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/la-importancia-de-la-imagen-urbana-en-torreon.html"><img class="media-object" src="../blog/la-importancia-de-la-imagen-urbana-en-torreon/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/la-importancia-de-la-imagen-urbana-en-torreon.html">La importancia de la imagen urbana en Torreón</a></h3>
+          <p class="detallados-descripcion">El deterioro de la imagen urbana, principalmente en el perímetro del Centro Histórico, se debe en buena medida a la irregularidad de los anuncios que los comerciantes ubican en la fachadas de sus negocios. Se deben aplicar mayores reglas para armonizar el diseño de la ciudad.</p>
+          <p class="detallados-autor-fecha">Por Arq. Teresita Benítez Saludado, 31/01/2017 10:35</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/la-necesidad-de-una-planeacion-urbana-sustentable.html"><img class="media-object" src="../blog/la-necesidad-de-una-planeacion-urbana-sustentable/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/la-necesidad-de-una-planeacion-urbana-sustentable.html">La necesidad de una planeación urbana sustentable</a></h3>
+          <p class="detallados-descripcion">Las proyecciones de crecimiento de población y vivienda para 2020, demuestran que es necesario revisar los instrumentos de planeación existentes en la ciudad de Torreón y la Comarca Lagunera. Se calcula que habrá un aumento de 11,350 viviendas nuevas por año.</p>
+          <p class="detallados-autor-fecha">Por Arq. Teresita Benítez Saludado, 14/04/2016 14:15</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/matriz-energetica-lagunera-necesaria-vision-de-futuro.html"><img class="media-object" src="../blog/matriz-energetica-lagunera-necesaria-vision-de-futuro/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/matriz-energetica-lagunera-necesaria-vision-de-futuro.html">Matriz energética lagunera: necesaria visión de futuro</a></h3>
+          <p class="detallados-descripcion">Es necesario reconocer el gran potencial de La Laguna en materia de energías limpias o energías renovables, dado que contamos con importantes ventajas competitivas y comparativas en la rama de energía solar, energía de la biomasa y energía eólica.</p>
+          <p class="detallados-autor-fecha">Por Lic. Eduardo Holguín Zehfuss, Lic. Adriana Vargas Flores, 08/09/2016 10:25</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/normatividad-urbana-el-reto-de-las-ciudades-mexicanas.html"><img class="media-object" src="../blog/normatividad-urbana-el-reto-de-las-ciudades-mexicanas/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/normatividad-urbana-el-reto-de-las-ciudades-mexicanas.html">Normatividad Urbana: el reto de las ciudades mexicanas</a></h3>
+          <p class="detallados-descripcion">El Reglamento de Desarrollo Urbano, Zonificación, Uso de Suelo y Construcción, será vanguardista y congruente con la realidad urbana del municipio. Incorpora nuevos conceptos urbanísticos y será compatible con el Plan Director de Desarrollo Urbano.</p>
+          <p class="detallados-autor-fecha">Por Ing. Luis Campos Hinojosa, 17/03/2016 10:45</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/nueva-ley-de-asentamientos-humanos-estrategia-para-ordenar-la-metropoli.html"><img class="media-object" src="../blog/nueva-ley-de-asentamientos-humanos-estrategia-para-ordenar-la-metropoli/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/nueva-ley-de-asentamientos-humanos-estrategia-para-ordenar-la-metropoli.html">Nueva Ley de Asentamientos Humanos: estrategia para ordenar la metrópoli</a></h3>
+          <p class="detallados-descripcion">Actualmente el uso de suelo habitacional ocupa la mayor superficie urbana de la Zona Metropolitana de La Laguna. De continuar con una baja densidad poblacional, los escenarios de expansión a futuro resultan preocupantes por la inversión que se necesita y los costos ambientales que esto implica.</p>
+          <p class="detallados-autor-fecha">Por Arq. Teresita Benítez Saludado, Lic. Adriana Vargas Flores, 14/12/2016 15:05</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/obras-son-competitividad-que-no-buenas-razones.html"><img class="media-object" src="../blog/obras-son-competitividad-que-no-buenas-razones/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/obras-son-competitividad-que-no-buenas-razones.html">Obras son competitividad, que no buenas razones</a></h3>
+          <p class="detallados-descripcion">El Complejo Cultural y Deportivo La Jabonera, La Línea Verde, el Metrobús o el Paseo Morelos, son obras que van de acuerdo con las visiones y proyectos del Plan TRC2040 y que buscan ayudar a crear  una ciudad más densificada e incluyente.</p>
+          <p class="detallados-autor-fecha">Por Lic. Adriana Vargas Flores, 14/12/2016 15:30</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/poligonos-actuacion-desarrollo-urbano-integral.html"><img class="media-object" src="../blog/poligonos-actuacion-desarrollo-urbano-integral/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/poligonos-actuacion-desarrollo-urbano-integral.html">Polígonos de Actuación para un Desarrollo Urbano Integral</a></h3>
+          <p class="detallados-descripcion">El nuevo modelo de desarrollo urbano mexicano que se impulsa en el país es el de fomentar la consolidación de las ciudades y lograr que sean más competitivas, equilibradas, densas, prósperas, justas, seguras y sustentables.</p>
+          <p class="detallados-autor-fecha">Por Arq. Jair Miramontes Chávez, 14/10/2014 08:05</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/regeneracion-urbana-para-una-mejor-calidad-de-vida-2017.html"><img class="media-object" src="../blog/regeneracion-urbana-para-una-mejor-calidad-de-vida-2017/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/regeneracion-urbana-para-una-mejor-calidad-de-vida-2017.html">Regeneración urbana para una mejor calidad de vida</a></h3>
+          <p class="detallados-descripcion">Poco a poco algunas zona olvidadas de Torreón están reviviendo por el fenómeno de regeneración urbana, que implica la rehabilitación de algún espacio que se encontraba en condiciones deplorables, como es el caso de la Línea Verde al oriente de la ciudad.</p>
+          <p class="detallados-autor-fecha">Por Arq. Jair Miramontes Chávez, 16/01/2017 12:10</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/torreon-bajo-la-mirada-de-onu-habitat.html"><img class="media-object" src="../blog/torreon-bajo-la-mirada-de-onu-habitat/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/torreon-bajo-la-mirada-de-onu-habitat.html">Torreón bajo la mirada de ONU Hábitat</a></h3>
+          <p class="detallados-descripcion">El Índice de las Ciudades Prósperas es un proyecto impulsado por ONU Hábitat y financiado en México por INFONAVIT. Torreón mostró una prosperidad moderada, similar a ciudades como Manila en Filipinas o Quito, Ecuador.</p>
+          <p class="detallados-autor-fecha">Por Lic. Rodrigo González Morales, 23/02/2017 09:03</p>
+        </div>
+      </div>
+      <div class="media breve">
+        <a class="pull-left" href="../blog/torreon-hacia-la-resiliencia-urbana.html"><img class="media-object" src="../blog/torreon-hacia-la-resiliencia-urbana/imagen-previa.jpg"></a>
+        <div class="media-body">
+          <h3 class="media-heading detallados-encabezado"><a href="../blog/torreon-hacia-la-resiliencia-urbana.html">Torreón, hacia la resiliencia urbana</a></h3>
+          <p class="detallados-descripcion">Cada vez más ciudades en el mundo han comenzado a transitar hacia la resiliencia y la reducción de riesgos como una estrategia urbana para lograr un desarrollo sostenible. El Plan de Resiliencia Urbana debe de ser un proyecto prioritario para Torreón.</p>
+          <p class="detallados-autor-fecha">Por Ing. Luis Campos Hinojosa, 13/02/2017 14:02</p>
+        </div>
+      </div>
+    </div>
+    <div class="mapa-inferior">
+      <div class="row">
+        <div class="col-md-8">
+            <a href="../index.html"><img class="img-responsive mapa-inferior-logo" src="../imagenes/cmic-trcimplan-mapa-inferior-360x120.png" alt="CMIC Laguna / IMPLAN Torreón"></a>
+        </div>
+        <div class="col-md-4">
+          <div class="pull-right redes-sociales">
+            <a class="fa fa-twitter-square" href="https://twitter.com/canacotorreon" target="_blank"></a>
+            <a class="fa fa-facebook-square" href="https://facebook.com/canacoservyturtorreon" target="_blank"></a>
+            <a class="fa fa-github-square" href="https://github.com/TRCIMPLAN/canacoservyturtorreon" target="_blank"></a>
+            <a class="fa fa-rss-square" href="../rss.xml"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Javascript común -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../js/raphael-min.js"></script>
+<script type="text/javascript" src="../js/morris.min.js"></script>
+<script type="text/javascript" src="../js/plugins/metisMenu/metisMenu.min.js"></script>
+<script type="text/javascript" src="../js/sb-admin-2.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+</body>
+</html>

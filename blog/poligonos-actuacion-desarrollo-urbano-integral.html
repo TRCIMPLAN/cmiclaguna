@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+<!-- ===================================================================================================
+
+        Instituto Municipal de Planeación y Competitividad de Torreón.
+
+        3er. generación de la Plataforma del Conocimiento
+        Desarrollado por Ing. Guillermo Valdés Lozano <guivaloz en movimientolibre.com>
+
+        El software que lo construye está bajo la licencia GPL versión 3. © 2014, 2015, 2016.
+        Una copia está contenida en el archivo LICENCE al bajar desde GitHub.
+
+        Al usar, estudiar y copiar está aceptando los términos de uso de la información y del sitio web:
+          http://www.trcimplan.gob.mx/terminos/terminos-informacion.html
+          http://www.trcimplan.gob.mx/terminos/terminos-sitio.html
+
+        Agradecemos y compartimos las tecnologías abiertas y gratuitas sobre las que se basa:
+          PHP                    http://php.net
+          Twitter Bootstrap      http://getbootstrap.com
+          StartBootStrap         http://startbootstrap.com
+          Morris.js              https://morrisjs.github.io/morris.js/
+
+        El hospedaje es cortesía de GitHub. Descargue, estudie y colabore bajando todo este sitio web:
+          IMPLAN Torreón         https://github.com/TRCIMPLAN
+
+     =================================================================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El nuevo modelo de desarrollo urbano mexicano que se impulsa en el país es el de fomentar la consolidación de las ciudades y lograr que sean más competitivas, equilibradas, densas, prósperas, justas, seguras y sustentables.">
+  <meta name="author" content="Arq. Jair Miramontes Chávez">
+  <meta name="keywords" content="IMPLAN, Torreon">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Polígonos de Actuación para un Desarrollo Urbano Integral - CMIC Laguna / IMPLAN Torreón">
+  <meta name="twitter:description" content="El nuevo modelo de desarrollo urbano mexicano que se impulsa en el país es el de fomentar la consolidación de las ciudades y lograr que sean más competitivas, equilibradas, densas, prósperas, justas, seguras y sustentables.">
+  <meta name="twitter:image" content="http://www.trcimplan.gob.mx/cmiclaguna/blog/poligonos-actuacion-desarrollo-urbano-integral/imagen-previa.jpg">
+  <meta name="twitter:url" content="http://www.trcimplan.gob.mx/cmiclaguna/blog/poligonos-actuacion-desarrollo-urbano-integral.html">
+  <meta name="og:title" content="Polígonos de Actuación para un Desarrollo Urbano Integral - CMIC Laguna / IMPLAN Torreón">
+  <meta name="og:description" content="El nuevo modelo de desarrollo urbano mexicano que se impulsa en el país es el de fomentar la consolidación de las ciudades y lograr que sean más competitivas, equilibradas, densas, prósperas, justas, seguras y sustentables.">
+  <meta name="og:image" content="http://www.trcimplan.gob.mx/cmiclaguna/blog/poligonos-actuacion-desarrollo-urbano-integral/imagen-previa.jpg">
+  <meta name="og:url" content="http://www.trcimplan.gob.mx/cmiclaguna/blog/poligonos-actuacion-desarrollo-urbano-integral.html">
+  <title>Polígonos de Actuación para un Desarrollo Urbano Integral - CMIC Laguna / IMPLAN Torreón</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/x-icon" href="../imagenes/favicon.png">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon-76x76.png" sizes="76x76">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon-120x120.png" sizes="120x120">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon-152x152.png" sizes="152x152">
+  <link rel="apple-touch-icon" href="../imagenes/apple-touch-icon-180x180.png" sizes="180x180">
+  <link rel="icon" href="../imagenes/icon-hires.png" sizes="192x192">
+  <link rel="icon" href="../imagenes/icon-normal.png" sizes="128x128">
+  <link rel="alternate" type="application/rss+xml" href="../rss.xml" title="CMIC Laguna / IMPLAN Torreón">
+  <link rel="stylesheet" type="text/css" href="../css/morris.css">
+  <link rel="stylesheet" type="text/css" href="../css/plugins/metisMenu/metisMenu.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/sb-admin-2.css">
+  <link rel="stylesheet" type="text/css" href="../css/plataforma-de-conocimiento.css">
+  <link rel="stylesheet" type="text/css" href="../css/trcimplan.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Sans|Roboto+Condensed:400,700">
+  <link rel="stylesheet" type="text/css" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
+  <!-- SOPORTE PARA IE -->
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="wrapper">
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html"><img class="navbar-brand-img" src="../imagenes/cmic-trcimplan-barra.png" alt="CMIC Laguna / IMPLAN Torreón"></a>
+    </div>
+  <div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+      <ul class="nav" id="side-menu">
+        <li class="sidebar-search">
+          <form method="get" id="searchbox_015475140351266618625:04hulmghdys" action="http://www.trcimplan.gob.mx/buscador-resultados.html">
+            <input type="hidden" value="015475140351266618625:04hulmghdys" name="cx">
+            <input type="hidden" value="FORID:11" name="cof">
+            <div class="input-group custom-search-form">
+              <input type="text" class="form-control" placeholder="Buscar..." value="" name="s" id="s">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="active"><a href="../blog/index.html"><span class="navegacion-icono"><i class="fa fa-lightbulb-o"></i></span> Análisis Publicados</a></li>
+        <li>
+          <a href="#"><span class="navegacion-icono"><i class="fa fa-area-chart"></i></span> Indicadores<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li><a href="../smi/introduccion.html"><span class="navegacion-icono"><i class="fa fa-file-text-o"></i></span> Introducción al SMI</a></li>
+            <li><a href="../indicadores-categorias/index.html"><span class="navegacion-icono"><i class="fa fa-th-list"></i></span> Indicadores por Categoría</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="navegacion-icono"><i class="fa fa-map-marker"></i></span> Información Geográfica<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li><a href="../sig/introduccion.html"><span class="navegacion-icono"><i class="fa fa-file-text-o"></i></span> Introducción al SIG</a></li>
+            <li><a href="../sig-planes/index.html"><span class="navegacion-icono"><i class="fa fa-file-pdf-o"></i></span> Planes</a></li>
+            <li><a href="../sig-mapas-torreon/index.html"><span class="navegacion-icono"><i class="fa fa-map-marker"></i></span> Mapas de Torreón</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="navegacion-icono"><i class="fa fa-share-alt"></i></span> Términos de Uso<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li><a href="../terminos/terminos-informacion.html"><span class="navegacion-icono"><i class="fa fa-cubes"></i></span> De la información</a></li>
+            <li><a href="../terminos/terminos-sitio.html"><span class="navegacion-icono"><i class="fa fa-globe"></i></span> Del sitio web</a></li>
+            <li><a href="../terminos/privacidad.html"><span class="navegacion-icono"><i class="fa fa-lock"></i></span> Aviso de Privacidad</a></li>
+          </ul>
+        </li>
+        <li><a href="../contacto/contacto.html"><span class="navegacion-icono"><i class="fa fa-phone"></i></span> Contacto</a></li>
+        <li><a href="http://www.trcimplan.gob.mx/" target="_blank"><span class="navegacion-icono"><i class="fa fa-external-link"></i></span> IMPLAN Torreón</a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  <div id="page-wrapper">
+    <div class="cuerpo">
+      <article><div itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="encabezado" style="background-color:#808080;">
+          <h1 itemprop="name">Polígonos de Actuación para un Desarrollo Urbano Integral</h1>
+          <div class="encabezado-descripcion" itemprop="description">El nuevo modelo de desarrollo urbano mexicano que se impulsa en el país es el de fomentar la consolidación de las ciudades y lograr que sean más competitivas, equilibradas, densas, prósperas, justas, seguras y sustentables.</div>
+          <div class="encabezado-autor-fecha">
+            Por <span itemprop="author">Arq. Jair Miramontes Chávez</span> -
+            <meta itemprop="datePublished" content="2014-10-14T08:05">14/10/2014 08:05
+          </div>
+        </div>
+        <span class="contenido-imagen-previa"><img class="img-responsive" itemprop="image" alt="Polígonos de Actuación para un Desarrollo Urbano Integral" src="poligonos-actuacion-desarrollo-urbano-integral/imagen.jpg"></span>
+        <div itemprop="articleBody">
+<!-- Contenido: Inicia  -->
+
+<p>El nuevo modelo de desarrollo urbano mexicano que se impulsa en el país es el de fomentar la consolidación de las ciudades y lograr que sean más competitivas, equilibradas, densas, prósperas, justas, seguras y sustentables.</p>
+
+<p>Para alcanzar este modelo, el Plan de Desarrollo Urbano de Torreón propone la implementación de polígonos de actuación como instrumento de planeación urbana.</p>
+
+<h3>¿Que son los polígonos de actuación?</h3>
+
+<p>Los polígonos de actuación son límites geográficos-espaciales del territorio definidos a partir de condicionantes o características similares del lugar, donde se pretende llevar a cabo acciones específicas de intervención urbana. Pueden ser zonas de influencia en la vida productiva de los habitantes, donde se aprovechen al máximo las ventajas de la urbanización, que generen un crecimiento coherente ordenado y compatible con la sustentabilidad ambiental y social.</p>
+
+<p>Los polígonos se aplican a través de sistemas de actuación social, privada y por cooperación para el fomento y concertación de acciones, vinculados y regulados por la administración pública, dando prioridad a aquellos proyectos que tengan una orientación social.</p>
+
+<p>Son susceptibles de definirse como polígonos de actuación:</p>
+
+<ul>
+    <li>Zonas que tienen terrenos sin construir, ubicados dentro de la mancha urbana, que cuentan con accesibilidad y servicios donde pueden llevarse a cabo proyectos de impacto urbano, apoyándose en programas de fomento social, económico y para la vivienda.</li>
+    <li>Zonas habitacionales con potencial de mejoramiento, de población de bajos ingresos, con altos índices de deterioro y carencia de servicios urbanos, donde se requiere un fuerte impulso para equilibrar las condiciones y mejorar la integración con el resto de la ciudad.</li>
+    <li>Áreas factibles de regeneración urbana, que cuentan con infraestructura vial y de transporte, y servicios urbanos adecuados, localizadas en zonas de gran accesibilidad, generalmente ocupadas por vivienda unifamiliar de uno o dos niveles con grados importantes de deterioro, las cuales podrían captar población adicional, un uso más densificado del suelo y ofrecer mejores condiciones de rentabilidad.</li>
+    <li>Zonas industriales deterioradas o abandonadas que requieren reconvertirse para ser más competitivas y para evitar impactos ecológicos negativos, retomando la vocación y aprovechando la infraestructura del lugar.</li>
+    <li>Áreas de conservación patrimonial que tienen valores históricos y culturales, así como en las que sin estar formalmente clasificadas como tales, presentan características de unidad formal que requieran atención especial para mantener y potenciar sus valores.</li>
+    <li>Zonas susceptibles de rescate donde las condiciones naturales han sido alteradas por la presencia de usos inconvenientes o por el manejo indebido de recursos naturales y que requieren de acciones para restablecer en lo posible su condición original.</li>
+    <li>Áreas naturales que no presentan alteraciones graves y que requieran medidas para el control del uso del suelo y para desarrollar en ellas actividades que sean compatibles con la función de preservar el ámbito natural.</li>
+    <li>Zonas que por sus características, uso de suelo o vocación propician o conjugan los esfuerzos de los propietarios de predios para el desarrollo urbano.</li>
+</ul>
+
+<p>El Plan Director de Desarrollo Urbano de Torreón señala la implementación de polígonos de consolidación, crecimiento, mejoramiento, conservación y recreación que a su vez engloban subtemas específicos:</p>
+
+<ul>
+    <li>Polígonos de Consolidación:</li>
+    <li>
+        <ul>
+            <li>Comercio y Servicios</li>
+            <li>Comercio e Industria</li>
+            <li>Desarrollo Social</li>
+            <li>Educación y Desarrollo Tecnológico</li>
+            <li>Vivienda</li>
+        </ul>
+    </li>
+    <li>Polígonos de Crecimiento:</li>
+    <li>
+        <ul>
+            <li>Agricultura Tecnificada</li>
+            <li>Corredor Comercial</li>
+            <li>Industria</li>
+            <li>Vivienda</li>
+        </ul>
+    </li>
+    <li>Polígonos de Mejoramiento:</li>
+    <li>
+        <ul>
+            <li>Clúster de Salud</li>
+            <li>Clúster de Cultura y Comercio</li>
+            <li>Comercio</li>
+            <li>Vivienda</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Polígonos de Conservación y Recreación</h3>
+
+<p>La implementación de los polígonos de actuación se podrá realizar a través de políticas públicas e iniciativas privadas que le permitirán a Torreón transitar hacia un modelo de desarrollo urbano sustentable, integral e inteligente, procurando viviendas dignas y mejorando la calidad de vida de los torreonenses.</p>
+
+<!-- Contenido: Termina -->
+        </div>
+      </div></article>
+<div class="contenido-social">
+  <h5>Compartir en Redes Sociales</h5>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="trcimplan" data-lang="es">Twittear</a>
+  <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.trcimplan.gob.mx%2Fcmiclaguna%2Fblog%2Fpoligonos-actuacion-desarrollo-urbano-integral.html&amp;width=300&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>
+</div>
+    </div>
+    <div class="mapa-inferior">
+      <div class="row">
+        <div class="col-md-8">
+            <a href="../index.html"><img class="img-responsive mapa-inferior-logo" src="../imagenes/cmic-trcimplan-mapa-inferior-360x120.png" alt="CMIC Laguna / IMPLAN Torreón"></a>
+        </div>
+        <div class="col-md-4">
+          <div class="pull-right redes-sociales">
+            <a class="fa fa-twitter-square" href="https://twitter.com/canacotorreon" target="_blank"></a>
+            <a class="fa fa-facebook-square" href="https://facebook.com/canacoservyturtorreon" target="_blank"></a>
+            <a class="fa fa-github-square" href="https://github.com/TRCIMPLAN/canacoservyturtorreon" target="_blank"></a>
+            <a class="fa fa-rss-square" href="../rss.xml"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Javascript común -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../js/raphael-min.js"></script>
+<script type="text/javascript" src="../js/morris.min.js"></script>
+<script type="text/javascript" src="../js/plugins/metisMenu/metisMenu.min.js"></script>
+<script type="text/javascript" src="../js/sb-admin-2.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+<!-- Javascript: Inicia  -->
+<script>
+  // Twitter
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+<!-- Javascript: Termina -->
+</body>
+</html>
