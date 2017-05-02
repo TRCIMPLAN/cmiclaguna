@@ -27,19 +27,35 @@ namespace Configuracion;
  */
 class PublicacionConfig {
 
-    public $sitio_url                 = 'http://www.trcimplan.gob.mx/cmiclaguna';
-    public $fecha                     = '1980-01-01T08:00';
-    public $autor                     = 'guivaloz';
-    public $aparece_en_pagina_inicial = TRUE;
-    public $para_compartir            = TRUE;
-    public $imagen;
-    public $imagen_previa;
-    public $imagen_id;
-    public $icono;
-    public $region_nivel              = 0;
-    public $estado                    = 'publicar';
-    public $poner_imagen_en_contenido = TRUE;
-    public $include_extra_directorio  = '';
+    public $sitio_url                 = 'http://www.trcimplan.gob.mx/cmiclaguna'; // Sin diagonal al final
+    public $fecha                     = '1980-01-01T08:00';                       // La fecha en forma de YYYY-MM-DDTHH:MM, siendo así se ordena cronológicamente
+    public $autor                     = 'TrcIMPLAN Staff';                        // El nombre o apodo a quien se le atribuye
+    public $aparece_en_pagina_inicial = TRUE;                                     // Verdadero si va aparecer en la página de inicio
+    public $para_compartir            = TRUE;                                     // Si es verdadero pondrá los botones para compartir en Twitter/Facebook
+    public $imagen;                                                               // Ruta relativa a un archivo de imagen, anteriormente a '../imagenes/imagen.jpg'
+    public $imagen_previa;                                                        // Ruta relativa a un archivo de imagen para la vista previa, anteriormente a '../imagenes/imagen-previa.jpg'
+    public $imagen_id;                                                            // Nombre del id que en el CSS hace que la imagen cambie al pasar el ratón, reemplaza las otras imágenes en Vinculos
+    public $icono;                                                                // Nombre del icono Font Awsome
+    public $region_nivel              = 0;                                        // Nivel de la región. Le sirve a Relacionados para preferir los que sean de la misma región
+    public $estado                    = 'publicar';                               // El estado ordena a Imprenta e Índice si debe 'publicar', 'revisar' o 'ignorar'
+    public $poner_imagen_en_contenido = TRUE;                                     // Si es verdadero pondrá la imagen antes que el contenido
+    public $include_extra_directorio  = 'include/extra';                          // Ruta donde habrá archivos HTML para cargar como el extra de SchemaThing, por ejemplo include/extra
+    public $publisher;                                                            // Instancia de SchemaOrganization
+
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        // Definir publisher para las publicaciones que hereden SchemaBlogPosting
+        $this->publisher                 = new \Base\SchemaOrganization();
+        $this->publisher->name           = 'Instituto Municipal de Planeación y Competitividad de Torreón';
+        $this->publisher->description    = 'Órgano técnico responsable de la planeación del desarrollo del municipio de Torreón, Coahuila, México.';
+        $this->publisher->image          = '../imagenes/implan-logo.png';
+        $this->publisher->big_heading    = FALSE;
+        $this->publisher->image_show     = TRUE;
+        $this->publisher->is_article     = FALSE;
+        $this->publisher->class_property = 'publicador'; // Estilo CSS
+    } // constructor
 
 } // Clase PublicacionConfig
 

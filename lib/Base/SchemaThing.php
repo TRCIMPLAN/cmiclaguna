@@ -119,11 +119,11 @@ class SchemaThing extends Schema {
             $a[] = "<div class=\"encabezado\">";
         }
         if ($this->headline != '') {
-            if ($this->name == '') {
-                $this->name = $this->headline;
-                $a[] = sprintf('  <h1 itemprop="name">%s</h1>', $this->headline);
-            } elseif ($this->name != $this->headline) {
+            if (($this->name != '') && ($this->name != $this->headline)) {
                 $a[] = sprintf('  <h1 itemprop="headline">%s</h1><h4 itemprop="name">%s</h4>', $this->headline, $this->name);
+            } else {
+                $this->name = $this->headline;
+                $a[] = sprintf('  <h1 itemprop="headline">%s</h1>', $this->headline);
             }
         } elseif ($this->name != '') {
             $this->headline = $this->name;
@@ -175,16 +175,21 @@ class SchemaThing extends Schema {
      * @return string Código HTML
      */
     protected function image_html() {
-        if ($this->image != '') {
-            if ($this->image_show) {
-                return "  <span class=\"contenido-imagen-previa\"><img class=\"img-responsive\" itemprop=\"image\" alt=\"{$this->name}\" src=\"{$this->image}\"></span>";
-            } else {
-                return "  <meta itemprop=\"image\" alt=\"{$this->name}\" src=\"{$this->image}\">";
-            }
+        if (($this->image != '') && $this->image_show) {
+            return "  <span class=\"contenido-imagen-previa\"><img class=\"img-responsive\" itemprop=\"image\" alt=\"{$this->name}\" src=\"{$this->image}\"></span>";
         } else {
             return '';
         }
     } // image_html
+
+    /**
+     * Image final HTML
+     *
+     * @return string Código HTML
+     */
+    protected function image_final_html() {
+        return '  <div class="contenido-imagen-previa-final"></div>'; // En el CSS tiene clear:left
+    } // image_final_html
 
     /**
      * URL HTML

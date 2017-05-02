@@ -27,7 +27,7 @@ E_FATAL=99
 SITIO_WEB_DIR="$HOME/Documentos/GitHub/TrcIMPLAN/cmiclaguna"
 PLATAFORMA_DIR="$HOME/Documentos/GitHub/MovimientoLibre/movimientolibre.github.io"
 
-echo "[Destruir] Inicia..."
+echo "[Copiar] Inicia..."
 
 # Verificar
 if [ ! -d $PLATAFORMA_DIR ]; then
@@ -39,26 +39,47 @@ if [ ! -d $SITIO_WEB_DIR ]; then
     exit $E_FATAL
 fi
 cd $SITIO_WEB_DIR
+if [ ! -d "bin" ]; then
+    echo "Error: No se encuentra el directorio $SITIO_WEB_DIR/bin"
+    exit $E_FATAL
+fi
 if [ ! -d "lib" ]; then
-    echo "Error: No se encuentra el directorio $SITIO_WEB_DIR/lib."
+    echo "Error: No se encuentra el directorio $SITIO_WEB_DIR/lib"
     exit $E_FATAL
 fi
 
-# Crear directorio css
+# Eliminar
+echo "  Eliminando archivos de la Plataforma del Conocimiento..."
 cd $SITIO_WEB_DIR
-if [ ! -d bin ]; then
-    echo "  Creando por primera vez el directorio bin..."
-    mkdir bin
-fi
+rm -rf vendor
+cd $SITIO_WEB_DIR/lib
+rm -rf Base
+rm -rf Michelf
 
-# Crear directorio css
+# Crear directorio dist
 cd $SITIO_WEB_DIR
-if [ ! -d css ]; then
-    echo "  Creando por primera vez el directorio css..."
-    mkdir css
-    cd $SITIO_WEB_DIR/css
-    cp -rf $PLATAFORMA_DIR/css/* .
+if [ ! -d dist ]; then
+    echo "  Creando directorio dist"
+    mkdir dist
 fi
+if [ ! -d dist/css ]; then
+    echo "  Creando directorio dist/css"
+    mkdir dist/css
+fi
+echo "  Copiando dist/css/plataforma-de-conocimiento.css"
+cp -f $PLATAFORMA_DIR/dist/css/plataforma-de-conocimiento.css dist/css/plataforma-de-conocimiento.css
+echo "  Copiando dist/css/sb-admin-2.css"
+cp -f $PLATAFORMA_DIR/dist/css/sb-admin-2.css dist/css/sb-admin-2.css
+echo "  Copiando dist/css/sb-admin-2.min.css"
+cp -f $PLATAFORMA_DIR/dist/css/sb-admin-2.min.css dist/css/sb-admin-2.min.css
+if [ ! -d dist/js ]; then
+    echo "  Creando directorio dist/js"
+    mkdir dist/js
+fi
+echo "  Copiando dist/js/sb-admin-2.js"
+cp -f $PLATAFORMA_DIR/dist/js/sb-admin-2.js dist/js/sb-admin-2.js
+echo "  Copiando dist/js/sb-admin-2.min.js"
+cp -f $PLATAFORMA_DIR/dist/js/sb-admin-2.min.js dist/js/sb-admin-2.min.js
 
 # Crear directorio imagenes
 cd $SITIO_WEB_DIR
@@ -69,34 +90,25 @@ if [ ! -d imagenes ]; then
     cp -rf $PLATAFORMA_DIR/imagenes/* .
 fi
 
-# Eliminar
-echo "  Eliminando archivos de la Plataforma del Conocimiento..."
-cd $SITIO_WEB_DIR
-rm -rf fonts
-rm -rf img
-rm -rf js
-rm -rf less
-rm -rf scss
-cd $SITIO_WEB_DIR/bin
-rm -f  Crear.php
-cd $SITIO_WEB_DIR/lib
-rm -rf Base
-rm -rf Michelf
-
 # Copiar
 echo "  Copiando archivos de la Plataforma del Conocimiento..."
 cd $SITIO_WEB_DIR
-cp -r $PLATAFORMA_DIR/fonts .
-cp -r $PLATAFORMA_DIR/img .
-cp -r $PLATAFORMA_DIR/js .
-cp -r $PLATAFORMA_DIR/less .
-cp -r $PLATAFORMA_DIR/scss .
+cp -r $PLATAFORMA_DIR/vendor .
 cd $SITIO_WEB_DIR/bin
 cp $PLATAFORMA_DIR/bin/Crear.php .
 cd $SITIO_WEB_DIR/lib
 cp -r $PLATAFORMA_DIR/lib/Base .
 cp -r $PLATAFORMA_DIR/lib/Michelf .
 
+# En lib
+cd $SITIO_WEB_DIR/lib
+if [ ! -d Autores ]; then
+    mkdir Autores
+fi
+if [ ! -d Configuracion ]; then
+    mkdir Configuracion
+fi
+
 # Mostrar mensaje de término
-echo "[Destruir] Terminó."
+echo "[Copiar] Terminó."
 exit $EXITO
